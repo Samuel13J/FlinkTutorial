@@ -6,6 +6,8 @@ package com.atguigu.chapter02;
  * Project:  FlinkTutorial
  * <p>
  * Created by  wushengran
+ *
+ * 监听nc 端口，进行wordcount
  */
 
 import org.apache.flink.api.common.typeinfo.Types;
@@ -23,7 +25,7 @@ public class StreamWordCount {
         // 1. 创建流式执行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // 2. 读取文本流
-        DataStreamSource<String> lineDSS = env.socketTextStream("hadoop102", 7777);
+        DataStreamSource<String> lineDSS = env.socketTextStream("localhost", 7777);
         // 3. 转换数据格式
         SingleOutputStreamOperator<Tuple2<String, Long>> wordAndOne = lineDSS
                 .flatMap((String line, Collector<String> words) -> {

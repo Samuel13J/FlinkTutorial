@@ -23,6 +23,7 @@ public class BatchWordCount {
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
         // 2. 从文件读取数据  按行读取(存储的元素就是每行的文本)
         DataSource<String> lineDS = env.readTextFile("input/words.txt");
+        System.out.println(lineDS);
         // 3. 转换数据格式
         FlatMapOperator<String, Tuple2<String, Long>> wordAndOne = lineDS
                 .flatMap((String line, Collector<Tuple2<String, Long>> out) -> {
