@@ -9,10 +9,13 @@ package com.atguigu.chapter05;
  */
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.connector.jdbc.JdbcConnectionOptions;
+import org.apache.flink.connector.jdbc.JdbcSink;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
+import java.security.Principal;
 import java.util.Properties;
 
 public class SourceKafkaTest {
@@ -21,17 +24,18 @@ public class SourceKafkaTest {
         env.setParallelism(1);
 
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers", "hadoop102:9092");
+        properties.setProperty("bootstrap.servers", "localhost:9092");
         properties.setProperty("group.id", "consumer-group");
         properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.setProperty("auto.offset.reset", "latest");
 
         DataStreamSource<String> stream = env.addSource(new FlinkKafkaConsumer<String>(
-                "clicks",
+                "test",
                 new SimpleStringSchema(),
                 properties
         ));
+        System.out.println(stream);
 
 
         stream.print("Kafka");
