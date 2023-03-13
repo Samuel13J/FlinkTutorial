@@ -40,12 +40,18 @@ public class BufferingSinkExample {
 //        env.getCheckpointConfig().setCheckpointStorage(new FileSystemCheckpointStorage(""));
 
         CheckpointConfig checkpointConfig = env.getCheckpointConfig();
+//        设置检查点模式(恰好一次/至少一次)
         checkpointConfig.setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
+//        设置检查点尝试之间的最小暂停时间
         checkpointConfig.setMinPauseBetweenCheckpoints(500);
+//        设置检查点在被丢弃之前可能花费的最大时间
         checkpointConfig.setCheckpointTimeout(60000);
+//        设置同一时间可能正在进行的检查点尝试的最大次数
         checkpointConfig.setMaxConcurrentCheckpoints(1);
+//        允许外部持久化检查点
         checkpointConfig.enableExternalizedCheckpoints(
                 CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
+//        启用未对齐的检查点，这将大大减少反压力下的检查点时间
         checkpointConfig.enableUnalignedCheckpoints();
 
 

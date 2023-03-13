@@ -6,6 +6,7 @@ package com.atguigu.chapter02;
  * Project:  FlinkTutorial
  * <p>
  * Created by  wushengran
+ * @author Samuel13J
  */
 
 import org.apache.flink.api.common.typeinfo.Types;
