@@ -67,8 +67,12 @@ public class KafkaToMysql implements Serializable {
 //        mykafka.map((MapFunction<String, Tuple4<String, Integer, String, String>>) value);
 
 /*今天在使用Flink 时泛型采用的时Tuple，在后面进行算子操作时，采用了lamada表达式发现，代码运行时报以下错误
-The generic type parameters of ‘Tuple4’ are missing. In many cases lambda methods don’t provide enough information for automatic type extraction when Java generics are involved. An easy workaround is to use an (anonymous) class instead that implements the ‘org.apache.flink.api.common.functions.MapFunction’ interface. Otherwise the type has to be specified explicitly using type information.
-其翻译过来缺少“Tuple4”的泛型类型参数。在许多情况下，当涉及Java泛型时，lambda方法不能为自动类型提取提供足够的信息。一个简单的解决方法是使用（匿名）类来实现网址：apache.flink.api.common.functions函数.MapFunction的接口。否则，必须使用类型信息显式指定类型。*/
+The generic type parameters of ‘Tuple4’ are missing. In many cases lambda methods don’t provide enough information for
+automatic type extraction when Java generics are involved. An easy workaround is to use an (anonymous) class instead that
+implements the ‘org.apache.flink.api.common.functions.MapFunction’ interface. Otherwise the type has to be specified
+ explicitly using type information.
+其翻译过来缺少“Tuple4”的泛型类型参数。在许多情况下，当涉及Java泛型时，lambda方法不能为自动类型提取提供足够的信息。一个简单的解决方法是使
+用（匿名）类来实现网址：apache.flink.api.common.functions函数.MapFunction的接口。否则，必须使用类型信息显式指定类型。*/
 
         //内部类转换数据格式
         //如果直接通过流返回Tuple4则会报错，当涉及Java泛型时，lambda方法不能为自动类型提取提供足够的信息
