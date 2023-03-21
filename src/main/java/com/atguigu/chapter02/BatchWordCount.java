@@ -1,7 +1,7 @@
 package com.atguigu.chapter02;
 
 /**
- * Copyright (c) 2020-2030 尚硅谷 All Rights Reserved
+ * Copyright (c) 2020-2030 All Rights Reserved
  * <p>
  * Project:  FlinkTutorial
  * <p>
