@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="227beac9-290f-4702-9a3f-d1bbe6fe3651" name="centos">
+        <fileTransfer accessType="SFTP" host="192.168.56.137" port="22" sshConfigId="b69ca34d-e590-48c4-8161-367ba9e75be7" sshConfig="root@192.168.56.137:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="68a94936-2a16-494a-b681-bfbe7efde76d" name="windows" url="http://localhost">
+        <fileTransfer mountedRoot="D:\" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
