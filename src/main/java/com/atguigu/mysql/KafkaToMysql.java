@@ -1,7 +1,7 @@
 package com.atguigu.mysql;
 
 import akka.japi.tuple.Tuple4;
-import com.atguigu.chapter02.MysqlImpl;
+//import com.atguigu.chapter02.MysqlImpl;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.restartstrategy.RestartStrategies;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
@@ -88,7 +88,8 @@ public class KafkaToMysql implements Serializable {
                         strings[3]);
             }
         });
-        stream.addSink(new MysqlImpl());
         envs.execute();
+        stream.addSink(new MysqlImpl());
+
     }
 }

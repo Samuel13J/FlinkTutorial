@@ -15,7 +15,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class MysqlImpl extends RichSinkFunction<Tuple4<String, Integer, String, String>> {
-    PropertiesUtils instance = PropertiesUtils.getInstance();
+    private static final PropertiesUtils instance = PropertiesUtils.getInstance();
     private Connection connection;
     private PreparedStatement preparedStatement;
     String username = instance.getmysqlUserName();
